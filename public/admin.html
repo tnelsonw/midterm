@@ -1,0 +1,39 @@
+<html>
+<head>
+  <title>Shopping</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+  <script src="javascripts/app.js"></script>
+</head>
+<body ng-app="comment" ng-controller="MainCtrl">
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<div class="page-header"> 
+  <h1>Store Management Interface</h1>
+</div>
+
+  <form ng-submit="addComment()" style = "margin-top30px;">
+    <input type="text" style = "margin: 5px" ng-model="formName">Product Name</input><br>
+    <input type="text" style = "margin: 5px" ng-model="formPrice">Price</input> <br>
+    <input type="text" style = "margin: 5px" ng-model="formUrl">Picture URL</input><br>
+    <button type="submit" style = "margin-left: 5px">Add Product</button>
+  </form>
+  <div>
+    {{test}}
+  </div>
+
+<!--  <div ng-repeat="comment in comments | orderBy: '-upvotes'">
+    <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment)"></span>
+    {{comment.title}} - upvotes: {{comment.upvotes}}
+  </div>-->
+
+  <div ng-repeat="comment in comments | orderBy: '-upvotes'">
+    <span class="glyphicon glyphicon-remove" ng-click="delete(comment)"></span>
+    <!--<span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment)"></span> -->
+    {{comment.title}} - price {{comment.price}} - ordered {{comment.upvotes}} -
+    <img src="{{comment.image}}" alt="Product Image">
+  </div>
+</div>
+</div>
+</body>
+</html>
